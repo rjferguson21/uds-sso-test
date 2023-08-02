@@ -60,11 +60,10 @@
       {
         "fileMatch": [".*\\.ya?ml$"],
         "matchStrings": [
-          "# renovate: datasource=gitlab-tags depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( registryUrl=(?<registryUrl>.*?))?\\s.*?_version:\\s*(?<currentValue>[.*])\\s",
-          "# renovate: datasource=gitlab-tags depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( registryUrl=(?<registryUrl>.*?))?\\s.*?_version:\\s*['\"](?<currentValue>.*)['\"]\\s"
+          "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?( registryUrl=(?<registryUrl>.*?))?\\s.*?:\\s*['\"]?(?<currentValue>.*?)['\"]?\\s"
         ],
-        "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
-        "datasourceTemplate": "gitlab-tags"
+        "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver-coerced{{/if}}",
+        "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^(?<version>.*)${{/if}}"
       },
       {
         "fileMatch": [".*\\.ya?ml$"],
