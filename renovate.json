@@ -76,7 +76,7 @@
       {
         "fileMatch": [".*\/?zarf\\.ya?ml$"],
         "matchStrings": [
-          "(?<=images:\\s*?\\n)((\\s+-\\s+.+\\n)+)",
+          "images:\\s*\\n((\\s+-\\s+.+\\n)+)",
           "-\\s+(?<depName>[^:]+):(?<currentValue>.*)"
         ],
         "matchStringsStrategy": "recursive",
