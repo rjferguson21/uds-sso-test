@@ -67,6 +67,15 @@
       {
         "fileMatch": [".*\\.ya?ml$"],
         "matchStrings": [
+          "# renovate: datasource=gitlab-tags depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( registryUrl=(?<registryUrl>.*?))?\\s.*?_version:\\s*(?<currentValue>[.*])\\s",
+          "# renovate: datasource=gitlab-tags depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( registryUrl=(?<registryUrl>.*?))?\\s.*?_version:\\s*['\"](?<currentValue>.*)['\"]\\s"
+        ],
+        "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
+        "datasourceTemplate": "gitlab-tags"
+      },
+      {
+        "fileMatch": [".*\\.ya?ml$"],
+        "matchStrings": [
           "# renovate: zarf-uri datasource=github-tags depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?uri: ['\"]https:\\/\\/github.com\\/defenseunicorns\\/zarf\\/releases\\/download\\/(?<currentValue>.*)\\/zarf_.*_Linux_amd64['\"]",
           "# renovate: zarf-uri datasource=github-tags depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?uri: ['\"]https:\\/\\/github.com\\/defenseunicorns\\/zarf\\/releases\\/download\\/.*\\/zarf_(?<currentValue>.*)_Linux_amd64['\"]"
         ],
