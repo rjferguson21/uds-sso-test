@@ -61,8 +61,8 @@
         "matchStrings": [
           "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?( registryUrl=(?<registryUrl>.*?))?\\s.*?:\\s*['\"]?(?<currentValue>.*?)['\"]?\\s"
         ],
-        "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver-coerced{{/if}}",
-        "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^(?<version>.*)${{/if}}"
+        "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-bb\\.(?<build>\\d+)$",
+        "datasourceTemplate": "git-tags"
       },
       {
         "fileMatch": [".*\\.ya?ml$"],
@@ -103,8 +103,7 @@
       {
         "matchPackagePatterns": ["big-bang/.*"],
         "matchDatasources": ["gitlab-tags"],
-        "allowedVersions": "!/^v.*$/",
-        "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-bb\\.(?<build>\\d+)$"
+        "allowedVersions": "!/^v.*$/"
       }
     ]
   }
