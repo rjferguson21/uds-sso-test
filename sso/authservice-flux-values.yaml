@@ -5,7 +5,7 @@ application:
   path: chart
   repository: https://repo1.dso.mil/big-bang/product/packages/authservice.git
   ref:
-    # renovate: datasource=gitlab-tags depName=big-bang/product/packages/authservice versioning=semver registryUrl=https://repo1.dso.mil
+    # renovate: datasource=gitlab-tags depName=big-bang/product/packages/authservice registryUrl=https://repo1.dso.mil
     tag: 0.5.3-bb.11
   values: |
     ###ZARF_VAR_AUTHSERVICE_VALUES###
