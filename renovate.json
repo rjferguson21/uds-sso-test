@@ -76,8 +76,10 @@
       {
         "fileMatch": [".*\/?zarf\\.ya?ml$"],
         "matchStrings": [
-          "images:\\s*-\\s*(?<depName>[^:]+):(?<currentValue>.*)"
+          "(?<=images:\\s*?\\n)((\\s+-\\s+.+\\n)+)",
+          "-\\s+(?<depName>[^:]+):(?<currentValue>.*)"
         ],
+        "matchStringsStrategy": "recursive",
         "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver-coerced{{/if}}",
         "datasourceTemplate": "docker",
         "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^(?<version>.*)${{/if}}"
